@@ -38,7 +38,9 @@ body {
 
 /* ===== Header ===== */
 header {
-  background-color: rgba(26, 28, 32, 0.9);
+  background-color: rgba(13, 17, 23, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   padding: 1rem 4.5rem;
   display: flex;
   align-items: center;
@@ -70,7 +72,7 @@ nav a {
   transition: color 0.3s;
 }
 
-/* nav a::after {
+ nav a::after {
   
   content: "";
   position: absolute;
@@ -80,17 +82,17 @@ nav a {
   height: 2px;
   background-color: #3a7ce0;
   transition: width 0.3s;
-} */
+}
 
 nav a:hover,
 nav a.aktif {
   color: #ffffff;
 }
 
-/* nav a:hover::after,
+ nav a:hover::after,
 nav a.aktif::after {
   width: 100%;
-} */
+} 
 
 /* ===== Hero / About Me ===== */
 #about-me {
@@ -216,6 +218,120 @@ nav a.aktif::after {
   border-radius: 50%;
   border: 3px solid #21262d;
   transition: border-color 0.3s;
+}
+
+/* ===== Journey ===== */
+#journey {
+  background-color: #0d1117;
+  padding: 5rem 4.5rem;
+  text-align: center;
+}
+
+#journey h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.journey-card {
+  background-color: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 16px;
+  padding: 2rem;
+  transition:
+    transform 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.journey-card:hover {
+  transform: translateY(-6px);
+  border-color: #3a7ce0;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
+
+.journey-heading {
+  margin-bottom: 1.75rem;
+}
+
+.journey-heading h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.journey-heading p {
+  font-size: 0.92rem;
+  color: #8b949e;
+  line-height: 1.7;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.35rem;
+  width: 2px;
+  background: linear-gradient(to bottom, #3a7ce0, rgba(58, 124, 224, 0.2));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.75rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #0d1117;
+  border: 2px solid #3a7ce0;
+  box-shadow: 0 0 0 4px rgba(58, 124, 224, 0.12);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #3a7ce0;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timeline-item h4 {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+  line-height: 1.5;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  color: #8b949e;
+  line-height: 1.7;
 }
 
 /* ===== Projects ===== */
@@ -581,4 +697,74 @@ footer {
 .footer-bottom p {
   font-size: 0.82rem;
   color: #484f58;
+}
+
+@media (max-width: 992px) {
+  header,
+  #about-me,
+  #journey,
+  #project,
+  #skill,
+  #contact,
+  .footer-content,
+  .footer-bottom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #about-me,
+  .contact-wrapper,
+  .footer-content,
+  .journey-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  #about-me {
+    text-align: center;
+  }
+
+  .hero-kiri {
+    max-width: 100%;
+  }
+
+  .hero-tombol {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-kanan {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-kiri h2 {
+    font-size: 2.6rem;
+  }
+
+  .hero-kanan img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .journey-card,
+  .contact-info,
+  .contact-form {
+    padding: 1.5rem;
+  }
 }
